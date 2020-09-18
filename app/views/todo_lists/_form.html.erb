@@ -21,6 +21,16 @@
     <%= form.text_area :description, id: :todo_list_description %>
   </div>
 
+    <div class="field">
+      <%= form.label :priority %>
+      <%= form.number_field :priority, id: :todo_list_priority %>
+    </div>
+
+  <div class="field">
+      <%= form.label :duedate %>
+      <%= form.date_field :duedate, id: :todo_list_duedate %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

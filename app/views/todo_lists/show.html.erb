@@ -10,6 +10,16 @@
   <%= @todo_list.description %>
 </p>
 
+<p>
+  <strong>Priority:</strong>
+  <%= @todo_list.priority %>
+</p>
+
+<p>
+  <strong>Duedate:</strong>
+  <%= @todo_list.duedate.strftime("%m/%d/%Y") %>
+</p>
+
 <div id="todo_items_wrapper">
  <%= render @todo_list.todo_items %>
  <div id="form">

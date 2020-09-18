@@ -5,6 +5,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists.json
   def index
     @todo_lists = TodoList.all
+    @todo_lists = @todo_lists.sort_by{|p| p.priority}
   end
 
   # GET /todo_lists/1
@@ -56,8 +57,8 @@ class TodoListsController < ApplicationController
   def destroy
     @todo_list.destroy
     respond_to do |format|
-      format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
-      format.json { head :no_content }
+    format.html { redirect_to todo_lists_url, notice: 'Todo list was successfully destroyed.' }
+    format.json { head :no_content }
     end
   end
 
@@ -69,6 +70,6 @@ class TodoListsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def todo_list_params
-      params.require(:todo_list).permit(:title, :description)
+      params.require(:todo_list).permit(:title, :description, :priority, :duedate)
     end
 end
